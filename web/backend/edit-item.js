@@ -3,7 +3,7 @@ window.onload = function () {
     const itemId = urlParams.get('id');
 
     if (itemId) {
-        loadItemData(itemId); 
+        loadItemData(itemId);
     } else {
         console.error('Item ID not found in URL');
     }
@@ -27,22 +27,30 @@ function loadItemData(itemId) {
             let item = getRequest.result;
 
             if (item) {
-                // status select
-                statusVal = document.getElementById('status').value = item.status;
-                var select = document.getElementById("statusSelect"),
-                newoption = document.createElement("OPTION"),
-                newOptionVal = document.createTextNode(statusVal);
-                newoption.appendChild (newOptionVal) ;
-                select.insertBefore (newoption, select.firstChild);
+                // Create and append option for status
+                const statusSelect = document.getElementById("statusSelect"); 
+                const statusOption = document.createElement("option"); 
+                statusOption.textContent = item.status; 
+                statusOption.value = item.status; 
+                statusSelect.appendChild(statusOption); 
+                statusSelect.value = item.status;
 
                 document.getElementById('colour').value = item.colour;
                 document.getElementById('design').value = item.design;
                 document.getElementById('gender').value = item.gender;
                 document.getElementById('size').value = item.size;
-                document.getElementById('quantity').value = item.quantity;      
-                document.getElementById('totalPrice').value = item.price;      
+                
+                // Create and append option for quantity 
+                const quantitySelect = document.getElementById("quantitySelect");
+                 const quantityOption = document.createElement("option"); 
+                 quantityOption.textContent = item.quantity; 
+                 quantityOption.value = item.quantity; 
+                 quantitySelect.appendChild(quantityOption); 
+                 quantitySelect.value = item.quantity;
+
+                document.getElementById('totalPrice').value = item.price;
                 document.getElementById('tutorName').value = item.tutorName;
-                document.getElementById('group').value = item.group;            
+                document.getElementById('group').value = item.group;
                 document.getElementById('studentName').value = item.studentName;
                 document.getElementById('studentEmail').value = item.studentEmail;
 
@@ -100,7 +108,7 @@ document.getElementById('editItemForm').onsubmit = function (event) {
         putRequest.onsuccess = function () {
             console.log('Item updated successfully');
             alert('Item updated successfully!');
-            window.location.href = 'dashboard.html'; 
+            window.location.href = 'dashboard.html';
         };
 
         putRequest.onerror = function () {
