@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+     initial-scale=1.0">
+    <link rel="stylesheet" href="backend/style.css">
+    <title>wear your voices | Home</title>
+</head>
+<body>
+    <div class="headModle">
+    <img class="centra" src="images/logo.PNG" alt="wear your voice logo">
+    <h1 style="color: white; text-align: center;">Wear your voice</h1>
+    <a href="backend/login.html"><img src="images/profile.png" alt="profile" style="width:42px;height:42px;"></a>
+
+    </div>
+
+    <h2>T-shirt colours</h2>
+    <h3>Female</h3>
+      <div class="shirtModle">
+        <img src="images/red.png" alt="red t-shirt">
+        <div class="buttonCentra">
+          <span>Red</span>
+        <button onclick="myShirt('Red'); myGender('Female')">Add cart</button>
+        </div>
+        </div>
+<div class="shirtModle">
+<img src="images/lightblue.png" alt="light blue t-shirt">
+<div class="buttonCentra">
+  <span>Light blue</span>
+<button onclick="myShirt('Light blue'); myGender('Female')">Add cart</button>
+</div>
+</div>
+<div class="shirtModle">
+  <img src="images/dark blue.png" alt="dark blue t-shirt">
+  <div class="buttonCentra">
+    <span>Dark blue</span>
+  <button onclick="myShirt('Dark blue'); myGender('Female')">Add cart</button>
+  </div>
+  </div>
+<div class="shirtModle">
+<img src="images/yellow.png" alt="yellow t-shirt">
+<div class="buttonCentra">
+  <span>Yellow</span>
+<button onclick="myShirt('Yellow'); myGender('Female')">Add cart</button>
+</div>
+</div>
+<div class="shirtModle">
+  <img src="images/pink.png" alt="pink t-shirt">
+  <div class="buttonCentra">
+    <span>Pink</span>
+  <button style="text-align:center;" onclick="myShirt('Pink'); myGender('Female')">Add cart</button>
+  </div>
+  </div>
+  <!-- Male -->
+  <h3>Male</h3>
+  <div class="shirtModle">
+    <img src="images/dark green.png" alt="dark green t-shirt">
+    <div class="buttonCentra">
+      <span>Dark green</span>
+    <button onclick="myShirt('Dark green'); myGender('Male')">Add cart</button>
+    </div>
+    </div>
+    <div class="shirtModle">
+      <img src="images/blue.png" alt="blue t-shirt">
+      <div class="buttonCentra">
+        <span>Blue</span>
+      <button onclick="myShirt('Blue'); myGender('Male')">Add cart</button>
+      </div>
+      </div>
+<div class="shirtModle">
+<img src="images/black.png" alt="black t-shirt">
+<div class="buttonCentra">
+  <span>Black</span>
+<button onclick="myShirt('Black'); myGender('Male')">Add cart</button>
+</div>
+</div>
+
+<h2>Design style</h2>
+<div class="designModle">
+<img src="images/bsl_love.png" alt="bsl love">
+<div class="buttonCentra">
+  <span>BSL love</span>
+<button onclick="myDesign('BSL love')">Add cart</button>
+</div>
+</div>
+<div class="designModle">
+<img src="images/lipreading_ninja.png" alt="lipreading ninja">
+<div class="buttonCentra">
+  <span>Lipread ninja</span>
+<button onclick="myDesign('Lipreading ninja')">Add cart</button>
+</div>
+</div>
+<div class="designModle">
+<img src="images/walking along to bsl.png" alt="walking along to bsl">
+<div class="buttonCentra">
+  <span>Walking alone to BSL</span>
+<button onclick="myDesign('Walking along to bsl')">Add cart</button>
+</div>
+</div>
+
+<div class="boxModle">
+<form>
+    <label for="colour">T-shirt colour</label>
+     <input class="hideinput" readonly type="text" id="myShirt" name="colour-input">
+     <span id="colourFeedback" style="color: red;"></span>
+    <label for="design">Design</label>
+     <input class="hideinput" readonly type="text" id="myDesign" name="design-input">
+     <span id="designFeedback" style="color: red;"></span>
+
+     
+
+     <div class="form-group">
+        <label for="size">
+          Size
+        </label>
+        <select class="select" id="size" name="size">
+        <option value="">Select option</option>
+            <option value="XS">XS</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>   
+        </select>
+        <span id="sizeFeedback" style="color: red;"></span>
+      </div>
+      <label for="gender">Gender</label>
+      <input class="hideinput" readonly type="text" id="gender", name="gender">
+      <span id="genderFeedback" style="color: red;"></span>
+     <div class="form-group">
+        <label for="quantity">
+            Quantity
+        </label>
+        <select class="select" id="quantity" name="quantity" oninput="quantityTotal()">
+        <option value="">Select option</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        </select>
+        <span id="quantityFeedback" style="color: red;"></span>
+      </div>
+    <label for="tutor name">Tutor name</label>
+    <input type="text" id="tutorName" name="tutorName">
+    <br>
+    <span id="tutorFeedback" style="color: red;"></span>
+
+<div class="form-group">
+    <label for="group">
+      Group
+    </label>
+    <select class="select" id="groupSelect" name="groupSelect">
+        <option value="">Select option</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select>
+    <span id="groupFeedback" style="color: red;"></span>
+  </div>
+
+    <label for="name">Name</label>
+    <input type="text" id="name-input" name="name-input">
+    <br>
+    <span id="nameFeedback" style="color: red;"></span>
+    <label for="email">Email</label>
+    <input type="text" id="email-input" name="email-input" oninput="validateEmailInput()">
+    <br>
+    <span id="emailFeedback" style="color: red;"></span>
+    <br>
+    <div class="boxModle">
+    <label for="total">Total</label>
+    <input class="hideinput" readonly id="totalPrice" name="totalPrice"></input>
+  </div>
+  </form>
+
+   <button id="btn-id" class="btn">
+    Make an order
+        </button>
+        <span id="errorFeedback" style="color: blue;"></span>
+</div>
+    <script src="backend/script.js"></script>
+</body>
+
+</html>

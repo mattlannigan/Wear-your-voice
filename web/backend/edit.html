@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wear your voices | Edit item</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Edit Item</h1>
+        <form id="editItemForm">
+            <div class="boxModle">
+            <label for="status">Status:</label>
+            <input hidden type="text" id="status" name="status" readonly>
+            <select class="select" id="statusSelect" name="statusSelect" required>
+                <option value="">Select option</option>
+                <option value="Order processed">Order processed</option>
+                <option value="Progress">Progress</option>
+                <option value="Compile">Compile</option>
+                <option value="Delivery">Delivery</option>
+            </select>
+            <label for="colour">Colour:</label>
+            <input type="text" id="colour" name="colour" required>
+
+            <label for="design">Design:</label>
+            <input type="text" id="design" name="design" required>
+            <label for="gender">Gender:</label>
+            <input type="text" id="gender" name="gender" required>
+            <!-- <select class="select" id="gender" name="gender" required>
+                <option value="">Select option</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>  
+                </select> -->
+
+            <label for="size">Size:</label>
+            <input type="text" id="size" name="size" required>
+            <!-- <select class="select" id="size" name="size" required>
+                <option value="">Select option</option>
+                <option value="XS">XS</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+            </select> -->
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" oninput="quantityTotal()" required>
+            <!-- <select class="select" id="quantity" name="quantity" oninput="quantityTotal()" required>
+                <option value="">Select option</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select> -->
+            <label for="price">Price:</label>
+            <input class="hideinput" type="text" id="totalPrice" name="totalPrice" readonly>
+            </div>
+            <br>
+            <div class="boxModle">
+            <label for="tutorName">Tutor name:</label>
+            <input type="text" id="tutorName" name="tutorName" required>
+
+            <label for="group">Group:</label>
+            <input type="text" id="group" name="group" required>
+            <!-- <select class="select" id="groupSelect" name="groupSelect" required>
+                <option value="">Select option</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select> -->
+
+            <label for="studentName">Name:</label>
+            <input type="text" id="studentName" name="studentName" required>
+            <label for="studentEmail">Email:</label>
+            <input type="text" id="studentEmail" name="studentEmail" required>
+            <br>
+            </div>
+
+            <button type="submit">Save Changes</button>
+            <button type="button" id="closeEditPage">Cancel</button>
+        </form>
+    </div>
+
+    <script src="edit-item.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
