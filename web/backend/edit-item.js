@@ -33,13 +33,8 @@ function loadItemData(itemId) {
                 statusOption.textContent = item.status; 
                 statusOption.value = item.status; 
                 statusSelect.appendChild(statusOption); 
-                statusSelect.value = item.status;
+                statusSelect.value = item.status;   
 
-                document.getElementById('colour').value = item.colour;
-                document.getElementById('design').value = item.design;
-                document.getElementById('gender').value = item.gender;
-                document.getElementById('size').value = item.size;
-                
                 // Create and append option for quantity 
                 const quantitySelect = document.getElementById("quantitySelect");
                  const quantityOption = document.createElement("option"); 
@@ -48,6 +43,25 @@ function loadItemData(itemId) {
                  quantitySelect.appendChild(quantityOption); 
                  quantitySelect.value = item.quantity;
 
+                  // Create and append option for gender 
+                const genderSelect = document.getElementById("genderSelect");
+                const genderOption = document.createElement("option"); 
+                genderOption.textContent = item.gender; 
+                genderOption.value = item.gender; 
+                genderSelect.appendChild(genderOption); 
+                genderSelect.value = item.gender;
+
+                  // Create and append option for gender 
+                const sizeSelect = document.getElementById("sizeSelect");
+                const sizeOption = document.createElement("option"); 
+                sizeOption.textContent = item.size; 
+                sizeOption.value = item.size; 
+                sizeSelect.appendChild(sizeOption); 
+                sizeSelect.value = item.size;
+
+                // Set up input value
+                document.getElementById('colour').value = item.colour;
+                document.getElementById('design').value = item.design;
                 document.getElementById('totalPrice').value = item.price;
                 document.getElementById('tutorName').value = item.tutorName;
                 document.getElementById('group').value = item.group;

@@ -14,7 +14,6 @@
         <form id="editItemForm">
             <div class="boxModle">
             <label for="status">Status:</label>
-            <input hidden type="text" id="status" name="status" readonly>
             <select class="select" id="statusSelect" name="statusSelect" required>
                 <option value="">Select option</option>
                 <option value="Order processed">Order processed</option>
@@ -28,25 +27,22 @@
             <label for="design">Design:</label>
             <input type="text" id="design" name="design" required>
             <label for="gender">Gender:</label>
-            <input type="text" id="gender" name="gender" required>
-            <!-- <select class="select" id="gender" name="gender" required>
+            <select class="select" id="genderSelect" name="genderSelect" required>
                 <option value="">Select option</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>  
-                </select> -->
+                </select>
 
             <label for="size">Size:</label>
-            <input type="text" id="size" name="size" required>
-            <!-- <select class="select" id="size" name="size" required>
+            <select class="select" id="sizeSelect" name="sizeSelect" required>
                 <option value="">Select option</option>
                 <option value="XS">XS</option>
                 <option value="S">S</option>
                 <option value="M">M</option>
                 <option value="L">L</option>
                 <option value="XL">XL</option>
-            </select> -->
+            </select>
             <label for="quantity">Quantity:</label>
-            <!-- <input type="number" id="quantity" name="quantity" oninput="quantityTotal()" required> -->
             <select class="select" id="quantitySelect" name="quantitySelect" oninput="quantityTotal()" required>
                 <option value="">Select option</option>
                 <option value="1">1</option>
