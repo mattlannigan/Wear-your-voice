@@ -24,7 +24,7 @@ btnLogin.addEventListener("click", () => {
   }
   if(!errorMes){
     if (usernamevalueinput === storedUsername && passwordvalueinput === storedPassword) { 
-      window.location.href = `dashboard.html?id=1`; 
+      window.location.href = `dashboard.html`; 
 
     }
        else { 
