@@ -57,14 +57,21 @@ function loadItemData(itemId) {
                 sizeOption.textContent = item.size; 
                 sizeOption.value = item.size; 
                 sizeSelect.appendChild(sizeOption); 
-                sizeSelect.value = item.size;
+                sizeSelect.value = item.size;                 
+                
+                // Create and append option for group 
+                const groupSelect = document.getElementById("groupSelect");
+                const groupOption = document.createElement("option"); 
+                groupOption.textContent = item.group; 
+                groupOption.value = item.size; 
+                groupSelect.appendChild(groupOption); 
+                groupSelect.value = item.size;
 
                 // Set up input value
                 document.getElementById('colour').value = item.colour;
                 document.getElementById('design').value = item.design;
                 document.getElementById('totalPrice').value = item.price;
                 document.getElementById('tutorName').value = item.tutorName;
-                document.getElementById('group').value = item.group;
                 document.getElementById('studentName').value = item.studentName;
                 document.getElementById('studentEmail').value = item.studentEmail;
 

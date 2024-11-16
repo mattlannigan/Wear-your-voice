@@ -45,7 +45,6 @@ img {
   height: 250px;
 }
 
-/* Model and Design Section */
 .shirtModle, .designModle {
   width: auto;
   height: auto;
@@ -68,7 +67,6 @@ img {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); 
 }
 
-/* Input Fields */
 input[type=text], input[type=password] {
   width: 100%;
   padding: 12px 20px;
@@ -86,7 +84,6 @@ input[type=text], input[type=password] {
   outline: 0;
 }
 
-/* Labels and Text */
 label, span {
   font-weight: 400;
   font-size: 1.2rem; 
@@ -97,7 +94,6 @@ label, span {
   font-family: 'Georgia', serif; 
 }
 
-/* Buttons (General) */
 button, .btn {
   background-color: #f07c70; 
   border: none;
@@ -125,11 +121,11 @@ button:hover, .btn:hover {
   text-align: left;
   border: 1px solid #ddd;
   background-color: #fff;
-  border-radius: 10px; /* Rounded corners for a softer feel */
+  border-radius: 10px; 
 }
 
 .styled-table thead tr {
-  background-color: #f07c70; /* Coral background for table header */
+  background-color: #f07c70; 
   color: white;
 }
 
@@ -139,40 +135,39 @@ button:hover, .btn:hover {
 }
 
 .styled-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3; /* Light gray for alternating rows */
+  background-color: #f3f3f3; 
 }
 
 .styled-table tbody tr:hover {
-  background-color: #f1f1f1; /* Slight hover effect */
+  background-color: #f1f1f1; 
 }
 
 /* Breadcrumbs */
-/* Improved Breadcrumb Styles */
 ul.breadcrumb {
   padding: 12px 20px;
   list-style: none;
-  background-color: #faf3e0; /* Soft warm beige background */
-  border-radius: 8px; /* Rounded corners for a cozy feel */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-  margin-bottom: 20px; /* Space below the breadcrumb for clarity */
-  font-family: 'Georgia', serif; /* Friendly and warm font */
+  background-color: #faf3e0; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; 
+  font-family: 'Georgia', serif; 
 }
 
 ul.breadcrumb li {
   display: inline;
-  font-size: 1.2rem; /* Slightly larger font for readability */
-  color: #555; /* Subtle dark gray color */
-  letter-spacing: 0.5px; /* Spacing between letters for better flow */
+  font-size: 1.2rem; 
+  color: #555; 
+   letter-spacing: 0.5px; 
 }
 
 ul.breadcrumb li+li:before {
   padding: 0 8px;
-  color: #aaa; /* Light gray color for separators */
-  content: "/\00a0"; /* Soft slash separator */
+  color: #aaa; 
+  content: "/\00a0";
 }
 
 ul.breadcrumb li a {
-  color: #0275d8; /* Soft blue links */
+  color: #0275d8; 
   text-decoration: none;
   transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
 }
@@ -189,41 +184,41 @@ ul.breadcrumb:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
 }
 
-/* Styling for the Select Element */
+/*  Select Element */
 .select {
-  font-family: 'Georgia', serif, sans-serif; /* Cozy, welcoming font family */
+  font-family: 'Georgia', serif, sans-serif; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 1rem; /* Slightly larger font for readability */
+  font-size: 1rem; 
   line-height: 1.25;
   box-sizing: border-box;
   min-width: 11.5em;
   max-width: 100%;
-  height: 2.5rem;
+  height: 3.0rem;
   padding: 10px 15px;
-  border: 2px solid #ccc; /* Soft border to give a gentle outline */
-  border-radius: 8px; /* Rounded corners for a softer feel */
-  background-color: #fafafa; /* Light neutral background */
-  color: #333; /* Subtle text color for readability */
-  transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+  border: 2px solid #ccc; 
+  border-radius: 8px; 
+  background-color: #fafafa; 
+  color: #333; 
+  transition: border-color 0.3s ease, background-color 0.3s ease; 
   cursor: pointer;
   outline: none; 
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
 }
-/* Hover and Focus States for the Select */
+
 .select:hover {
-  border-color: #f07c70; /* Slight coral border color on hover */
-  background-color: #f1f1f1; /* Subtle background change on hover */
+  border-color: #f07c70; 
+  background-color: #f1f1f1;
 }
 
 .select:focus {
-  border-color: #f07c70; /* Coral border when focused */
-  background-color: #fff; /* Light background on focus */
-  box-shadow: 0 0 8px rgba(240, 124, 112, 0.3); /* Soft glowing effect on focus */
+  border-color: #f07c70; 
+  background-color: #fff; 
+  box-shadow: 0 0 8px rgba(240, 124, 112, 0.3); 
 }
 
-/* Styling for the Option Elements */
+/* S Option Elements */
 .select option {
   background-color: #fff; 
   color: #333; 
@@ -233,8 +228,6 @@ ul.breadcrumb:hover {
   outline: none; 
   transition: background-color 0.3s ease; 
 }
-
-/* Option Hover and Active States */
 .select option:hover {
   background-color: #f1f1f1; 
 }
