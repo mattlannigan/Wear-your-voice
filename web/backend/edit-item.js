@@ -36,7 +36,7 @@ function loadItemData(itemId) {
                 statusSelect.value = item.status;   
 
                 // Create and append option for quantity 
-                const quantitySelect = document.getElementById("quantitySelect");
+                const quantitySelect = document.getElementById("quantity");
                  const quantityOption = document.createElement("option"); 
                  quantityOption.textContent = item.quantity; 
                  quantityOption.value = item.quantity; 
@@ -51,7 +51,7 @@ function loadItemData(itemId) {
                 genderSelect.appendChild(genderOption); 
                 genderSelect.value = item.gender;
 
-                  // Create and append option for gender 
+                // Create and append option for size
                 const sizeSelect = document.getElementById("sizeSelect");
                 const sizeOption = document.createElement("option"); 
                 sizeOption.textContent = item.size; 
@@ -63,36 +63,13 @@ function loadItemData(itemId) {
                 const groupSelect = document.getElementById("groupSelect");
                 const groupOption = document.createElement("option"); 
                 groupOption.textContent = item.group; 
-                groupOption.value = item.size; 
+                groupOption.value = item.group; 
                 groupSelect.appendChild(groupOption); 
-                groupSelect.value = item.size;
-
-                // Create and append option for colour 
-                const colourSelect = document.getElementById("colourSelect");
-                let groupElmts = [];
-                
-                if (genderOption === 'female') {
-                    groupElmts = ["Red", "Light blue", "Dark blue", "Yellow", "Pink"];
-                } else {
-                    groupElmts = ["Black", "Blue", "Dark Green"];
-                }
-                
-                // First, clear any existing options in the select element
-                groupSelect.innerHTML = '';
-                
-                // Add the options from the array
-                groupElmts.forEach(elmt => {
-                    const option = document.createElement("option");
-                    option.value = elmt;
-                    option.textContent = elmt;
-                    colourSelect.appendChild(option);
-                    colourSelect.value = item.colour;
-                });
-                
-                // Assuming `item.group` holds the group value
                 groupSelect.value = item.group;  
 
-                // Set up input value
+
+                // Set up input values
+                document.getElementById('colour').value = item.colour;
                 document.getElementById('design').value = item.design;
                 document.getElementById('totalPrice').value = item.price;
                 document.getElementById('tutorName').value = item.tutorName;
@@ -114,7 +91,7 @@ function loadItemData(itemId) {
     };
 }
 
-// In edit-item.js, handle form submission
+// handle form submission
 document.getElementById('editItemForm').onsubmit = function (event) {
     event.preventDefault(); // Prevent form submission
 
