@@ -1,15 +1,23 @@
 window.onload = function () {
     const urlParams = new URLSearchParams(window.location.search);
     const itemId = urlParams.get('id');
+    const genderId = urlParams.get('gender');
 
     if (itemId) {
         loadItemData(itemId);
+        console.log(`Item ID: ${itemId}`);
     } else {
         console.error('Item ID not found in URL');
     }
+
+    if (genderId) {
+        console.log(`Gender ID: ${genderId}`);
+    } else {
+        console.error('Gender ID not found in URL');
+    }
 };
 
-function loadItemData(itemId) {
+function loadItemData(itemId, genderId) {
     // Open the IndexedDB
     let request = indexedDB.open('MyDatabase', 1);
 
@@ -27,50 +35,99 @@ function loadItemData(itemId) {
             let item = getRequest.result;
 
             if (item) {
+                console.log(item);
                 // Create and append option for status
-                const statusSelect = document.getElementById("statusSelect"); 
-                const statusOption = document.createElement("option"); 
-                statusOption.textContent = item.status; 
-                statusOption.value = item.status; 
-                statusSelect.appendChild(statusOption); 
-                statusSelect.value = item.status;   
+                const statusSelect = document.getElementById("statusSelect");
+                const statusOption = document.createElement("option");
+                statusOption.textContent = item.status;
+                statusOption.value = item.status;
+                statusSelect.appendChild(statusOption);
+                statusSelect.value = item.status;
 
                 // Create and append option for quantity 
                 const quantitySelect = document.getElementById("quantity");
-                 const quantityOption = document.createElement("option"); 
-                 quantityOption.textContent = item.quantity; 
-                 quantityOption.value = item.quantity; 
-                 quantitySelect.appendChild(quantityOption); 
-                 quantitySelect.value = item.quantity;
+                const quantityOption = document.createElement("option");
+                quantityOption.textContent = item.quantity;
+                quantityOption.value = item.quantity;
+                quantitySelect.appendChild(quantityOption);
+                quantitySelect.value = item.quantity;
 
-                  // Create and append option for gender 
+                // Create and append option for gender 
                 const genderSelect = document.getElementById("genderSelect");
-                const genderOption = document.createElement("option"); 
-                genderOption.textContent = item.gender; 
-                genderOption.value = item.gender; 
-                genderSelect.appendChild(genderOption); 
+                const genderOption = document.createElement("option");
+                genderOption.textContent = item.gender;
+                genderOption.value = item.gender;
+                genderSelect.appendChild(genderOption);
                 genderSelect.value = item.gender;
 
                 // Create and append option for size
                 const sizeSelect = document.getElementById("sizeSelect");
-                const sizeOption = document.createElement("option"); 
-                sizeOption.textContent = item.size; 
-                sizeOption.value = item.size; 
-                sizeSelect.appendChild(sizeOption); 
-                sizeSelect.value = item.size;                 
-                
+                const sizeOption = document.createElement("option");
+                sizeOption.textContent = item.size;
+                sizeOption.value = item.size;
+                sizeSelect.appendChild(sizeOption);
+                sizeSelect.value = item.size;
+
                 // Create and append option for group 
                 const groupSelect = document.getElementById("groupSelect");
-                const groupOption = document.createElement("option"); 
-                groupOption.textContent = item.group; 
-                groupOption.value = item.group; 
-                groupSelect.appendChild(groupOption); 
-                groupSelect.value = item.group;  
+                const groupOption = document.createElement("option");
+                groupOption.textContent = item.group;
+                groupOption.value = item.group;
+                groupSelect.appendChild(groupOption);
+                groupSelect.value = item.group;
+
+                // Create and append options for colour
+                const colourSelect = document.getElementById("colourSelect");
+                let colourOptions = [];
+
+                // Check the genderId and set available colour options
+                if (genderId) {
+                    console.log('Chose male');
+                    colourOptions = ["Black", "Blue", "Dark Green"];
+                } else {
+                    console.log('Chose female');
+                    colourOptions = ["Red", "Light blue", "Dark blue", "Yellow", "Pink"];
+
+                }
+
+                // Clear existing options before appending new ones
+                colourSelect.innerHTML = '';
+
+                // Add the options to the colour select dropdown
+                colourOptions.forEach(colourElms => {
+                    const colourOption = document.createElement("option");
+                    colourOption.value = colourElms;
+                    colourOption.textContent = colourElms;
+                    colourSelect.appendChild(colourOption);
+                });
+
+                // Set the selected value for the colour select (if item.colour is valid)
+                if (item && item.colour) {
+                    colourSelect.value = item.colour;
+                }
+
+
+                // Create and append option for design 
+                const designSelect = document.getElementById("designSelect");
+                let designOptions = ["Lipreading ninja", "Walking along to bsl", "BSL love"];
+
+                // Clear any existing options
+                designSelect.innerHTML = '';
+
+                // Add the options from the designOptions array
+                designOptions.forEach(designElms => {
+                    const designOption = document.createElement("option");
+                    designOption.value = designElms;
+                    designOption.textContent = designElms;
+                    designSelect.appendChild(designOption);
+                });
+                // Set the selected value 
+                designSelect.value = item.design;
 
 
                 // Set up input values
-                document.getElementById('colour').value = item.colour;
-                document.getElementById('design').value = item.design;
+                // document.getElementById('colour').value = item.colour;
+                // document.getElementById('design').value = item.design;
                 document.getElementById('totalPrice').value = item.price;
                 document.getElementById('tutorName').value = item.tutorName;
                 document.getElementById('studentName').value = item.studentName;
@@ -100,17 +157,17 @@ document.getElementById('editItemForm').onsubmit = function (event) {
     // Gather the form data
     let editedItem = {
         id: Number(itemId),
-        status: document.getElementById('status').value,
+        status: document.getElementById('statusSelect').value,
         colour: document.getElementById('colour').value,
         design: document.getElementById('design').value,
-        gender: document.getElementById('gender').value,
-        size: document.getElementById('size').value,
+        gender: document.getElementById('genderSelect').value,
+        size: document.getElementById('sizeSelect').value,
         quantity: document.getElementById('quantity').value,
         price: document.getElementById('totalPrice').value,
         tutorName: document.getElementById('tutorName').value,
-        group: document.getElementById('group').value,
-        studenName: document.getElementById('studentName').value,
-        email: document.getElementById('studentEmail').value
+        group: document.getElementById('groupSelect').value,
+        studentName: document.getElementById('studentName').value,
+        studentEmail: document.getElementById('studentEmail').value
 
     };
 
