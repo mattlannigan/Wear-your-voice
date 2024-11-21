@@ -85,6 +85,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 let editCell = document.createElement('td');
                 let editButton = document.createElement('button');
                 editButton.setAttribute('class', 'fa-solid fa-pen-to-square');
+                function createEditHandler(id) {
+                    return function () {                       
+                        window.location.href = `edit.html?id=${id}`;
+                    };
+                }
+
                 editButton.dataset.id = cursor.value.id;
                 editButton.addEventListener('click', function() {
                     let id = cursor.value.id;
