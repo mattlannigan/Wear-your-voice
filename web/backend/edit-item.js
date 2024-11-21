@@ -81,15 +81,15 @@ function loadItemData(itemId, genderId) {
                 let colourOptions = [];
 
                 // Check the genderId and set available colour options
-                if (genderId) {
-                    console.log('Chose male');
+                if (item.gender == 'Male') {
+                    console.log(`Chose male: ${item.gender}`);
                     colourOptions = ["Black", "Blue", "Dark Green"];
-                } else {
-                    console.log('Chose female');
+                } else if (item.gender == 'Female') {
+                    console.log(`Chose female: ${item.gender}`);
                     colourOptions = ["Red", "Light blue", "Dark blue", "Yellow", "Pink"];
-
+                } else {
+                    console.log('Error cannot find item.value.gender')
                 }
-
                 // Clear existing options before appending new ones
                 colourSelect.innerHTML = '';
 
@@ -100,12 +100,7 @@ function loadItemData(itemId, genderId) {
                     colourOption.textContent = colourElms;
                     colourSelect.appendChild(colourOption);
                 });
-
-                // Set the selected value for the colour select (if item.colour is valid)
-                if (item && item.colour) {
-                    colourSelect.value = item.colour;
-                }
-
+                colourSelect.value = item.colour;
 
                 // Create and append option for design 
                 const designSelect = document.getElementById("designSelect");
@@ -126,8 +121,6 @@ function loadItemData(itemId, genderId) {
 
 
                 // Set up input values
-                // document.getElementById('colour').value = item.colour;
-                // document.getElementById('design').value = item.design;
                 document.getElementById('totalPrice').value = item.price;
                 document.getElementById('tutorName').value = item.tutorName;
                 document.getElementById('studentName').value = item.studentName;
@@ -158,8 +151,8 @@ document.getElementById('editItemForm').onsubmit = function (event) {
     let editedItem = {
         id: Number(itemId),
         status: document.getElementById('statusSelect').value,
-        colour: document.getElementById('colour').value,
-        design: document.getElementById('design').value,
+        colour: document.getElementById('colourSelect').value,
+        design: document.getElementById('designSelect').value,
         gender: document.getElementById('genderSelect').value,
         size: document.getElementById('sizeSelect').value,
         quantity: document.getElementById('quantity').value,

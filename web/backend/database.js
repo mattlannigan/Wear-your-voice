@@ -1,6 +1,6 @@
 let request = indexedDB.open('MyDatabase', 1);
 
-request.onupgradeneeded = function(event) {
+request.onupgradeneeded = function (event) {
     let db = event.target.result;
     if (!db.objectStoreNames.contains('items')) {
         db.createObjectStore('items', { keyPath: 'id', autoIncrement: true });
@@ -13,19 +13,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Open (or create) the database
     let request = indexedDB.open('MyDatabase', 1);
 
-    request.onupgradeneeded = function(event) {
+    request.onupgradeneeded = function (event) {
         db = event.target.result;
         if (!db.objectStoreNames.contains('items')) {
             db.createObjectStore('items', { keyPath: 'id', autoIncrement: true });
         }
     };
 
-    request.onsuccess = function(event) {
+    request.onsuccess = function (event) {
         db = event.target.result;
         loadItems(); // Load items when the page loads
     };
 
-    request.onerror = function(event) {
+    request.onerror = function (event) {
         console.error('Database error:', event.target.error);
     };
 
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let itemsList = document.getElementById('itemsList');
         itemsList.innerHTML = ''; // Clear previous data
 
-        objectStore.openCursor().onsuccess = function(event) {
+        objectStore.openCursor().onsuccess = function (event) {
             let cursor = event.target.result;
 
             if (cursor) {
@@ -90,20 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         window.location.href = `edit.html?id=${id}`;
                     };
                 }
-
                 editButton.dataset.id = cursor.value.id;
-                editButton.addEventListener('click', function() {
-                    let id = cursor.value.id;
-                    let gender = cursor.value.gender;
-
-                    // Fix the typo: change toLowerCase() to toLowerCase()
-                    if (gender.toLowerCase() === 'male') {
-                        gender = false; // Set gender to false if male
-                    } else {
-                        gender = true; // Set gender to true if female or other
-                    }
-                    window.location.href = `edit.html?id=${id}&gender=${gender}`;
-                });
+                editButton.addEventListener('click', createEditHandler(cursor.value.id));
 
                 editCell.appendChild(editButton);
                 row.appendChild(editCell);
@@ -112,10 +100,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 let deleteCell = document.createElement('td');
                 let deleteButton = document.createElement('button');
                 deleteButton.setAttribute('class', 'fas fa-trash');
+
+                function createDeleteHandler(id) {
+                    return function () {                       
+                        deleteItem(id);
+                    };
+                }
                 deleteButton.dataset.id = cursor.value.id;
-                deleteButton.addEventListener('click', function() {
-                    deleteItem(cursor.value.id);
-                });
+                deleteButton.addEventListener('click', createDeleteHandler(cursor.value.id));
 
                 deleteCell.appendChild(deleteButton);
                 row.appendChild(deleteCell);
@@ -128,11 +120,11 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         // Handling transaction success and failure
-        transaction.oncomplete = function() {
+        transaction.oncomplete = function () {
             console.log('Transaction completed successfully.');
         };
 
-        transaction.onerror = function(event) {
+        transaction.onerror = function (event) {
             console.error('Transaction error:', event.target.error);
         };
     }
@@ -143,12 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
         let objectStore = transaction.objectStore('items');
         let deleteRequest = objectStore.delete(id);
 
-        deleteRequest.onsuccess = function() {
+        deleteRequest.onsuccess = function () {
             console.log(`Item with id ${id} deleted.`);
             loadItems(); // Reload the list after deletion
         };
 
-        deleteRequest.onerror = function(event) {
+        deleteRequest.onerror = function (event) {
             console.error('Delete request failed', event.target.error);
         };
     }
