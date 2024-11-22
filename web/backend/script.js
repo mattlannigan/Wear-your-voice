@@ -1,6 +1,8 @@
 
 const now = new Date();
 
+let priceValue = 12.50;
+
 const currentDateTime = now.toLocaleString();
 
 const imageMale = [
@@ -169,7 +171,7 @@ imageDesign.forEach(item => {
   imageBox.appendChild(buttonContainer);
 
   // Append the imageBox to the container
-  containerMale.appendChild(imageBox);
+  containerDesign.appendChild(imageBox);
 });
 
 // Dummy functions for the button's onclick event
@@ -364,7 +366,7 @@ function validateEmailInput() {
 
 function quantityTotal() {
   let quantityvalueinput = quantitySelect.value;
-  var result = 10 * quantityvalueinput;
+  var result = priceValue * quantityvalueinput;
   document.getElementById("totalPrice").value = '£' + result.toFixed(2);
 }
 
