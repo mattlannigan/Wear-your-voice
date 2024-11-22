@@ -3,6 +3,29 @@ const now = new Date();
 
 const currentDateTime = now.toLocaleString();
 
+const imageMale = [
+ {url:'images/male/black.png',        color: 'Black'},
+ {url:'images/male/dark green.png',   color: 'Dark green'},
+ {url:'images/male/blue.png',         color: 'Blue'}
+];
+
+const imageFemale = [
+  {url: 'images/female/dark blue.png', color: 'Dark blue'},
+  {url: 'images/female/lightblue.png', color: 'Light blue'},
+  {url: 'images/female/yellow.png',    color: 'Yellow'}, 
+  {url: 'images/female/pink.png',      color: 'Pink'}, 
+  {url: 'images/female/red.png',       color: 'Red'}   
+];
+
+const imageDesign = [
+  {url:'images/design/bsl_love.png',              color: 'BSL love'},
+  {url:'images/design/lipreading_ninja.png',      color: 'Lipreading ninja'},
+  {url:'images/design/walking along to bsl.png',  color: 'Walking alone to BSL'}  
+
+];
+
+
+
 let butto = document.querySelector("#btn-id");
 
 
@@ -34,6 +57,134 @@ const tutorfeedbackElement = document.getElementById('tutorFeedback');
 const namefeedbackElement = document.getElementById('nameFeedback');
 const emailfeedbackElement = document.getElementById('emailFeedback');
 const errfeedbackElement = document.getElementById('errorFeedback');
+
+
+// Loop through 
+const containerFemale = document.getElementById('image-female');
+const containerMale = document.getElementById('image-male');
+const containerDesign = document.getElementById('image-design');
+
+// female t-shirt images
+imageFemale.forEach(item => {
+  const imageBox = document.createElement('div');
+  imageBox.classList.add('shirtModle');  
+
+  const img = document.createElement('img');
+  img.src = item.url; 
+  img.alt = item.color;  
+
+  // Create the button container (button and color description)
+  const buttonContainer = document.createElement('div');
+  buttonContainer.classList.add('buttonCentra');
+
+  // Create the span element for color description
+  const colorSpan = document.createElement('span');
+  colorSpan.textContent = item.color;  
+
+  // Create the button element
+  const button = document.createElement('button');
+  button.textContent = 'Add to cart';  
+  button.onclick = () => {
+    myShirt(item.color);  
+    myGender('Female');   
+  };
+  // Append the span and button to the button container
+  buttonContainer.appendChild(colorSpan);
+  buttonContainer.appendChild(button);
+
+  // Append the image and button container to the imageBox div
+  imageBox.appendChild(img);
+  imageBox.appendChild(buttonContainer);
+
+  // Append the imageBox to the container
+  containerFemale.appendChild(imageBox);
+});
+
+// male t-shirt images
+imageMale.forEach(item => {
+  const imageBox = document.createElement('div');
+  imageBox.classList.add('shirtModle');  
+
+  const img = document.createElement('img');
+  img.src = item.url; 
+  img.alt = item.color;  
+
+  // Create the button container (button and color description)
+  const buttonContainer = document.createElement('div');
+  buttonContainer.classList.add('buttonCentra');
+
+  // Create the span element for color description
+  const colorSpan = document.createElement('span');
+  colorSpan.textContent = item.color;  
+
+  // Create the button element
+  const button = document.createElement('button');
+  button.textContent = 'Add to cart';  
+  button.onclick = () => {
+    myShirt(item.color);  
+    myGender('Male');   
+  };
+  // Append the span and button to the button container
+  buttonContainer.appendChild(colorSpan);
+  buttonContainer.appendChild(button);
+
+  // Append the image and button container to the imageBox div
+  imageBox.appendChild(img);
+  imageBox.appendChild(buttonContainer);
+
+  // Append the imageBox to the container
+  containerMale.appendChild(imageBox);
+});
+
+// design images
+imageDesign.forEach(item => {
+  const imageBox = document.createElement('div');
+  imageBox.classList.add('designModle');  
+
+  const img = document.createElement('img');
+  img.src = item.url; 
+  img.alt = item.color;  
+
+  // Create the button container (button and color description)
+  const buttonContainer = document.createElement('div');
+  buttonContainer.classList.add('buttonCentra');
+
+  // Create the button element
+  const button = document.createElement('button');
+  button.textContent = 'Add to cart';  
+  button.onclick = () => {
+    myDesign(item.color);  
+  };
+
+  // Create the span element for design description
+  const colorSpan = document.createElement('span');
+  colorSpan.textContent = item.color;  
+
+  // Append the span and button to the button container
+  buttonContainer.appendChild(colorSpan);
+  buttonContainer.appendChild(button);
+
+  // Append the image and button container to the imageBox div
+  imageBox.appendChild(img);
+  imageBox.appendChild(buttonContainer);
+
+  // Append the imageBox to the container
+  containerMale.appendChild(imageBox);
+});
+
+// Dummy functions for the button's onclick event
+function myDesign(color) {
+  console.log('Design added to cart: ' + color);
+}
+
+function myShirt(color) {
+  console.log('Shirt added to cart: ' + color);
+}
+
+function myGender(gender) {
+  console.log('Gender selected: ' + gender);
+}
+// --------------- END loop ___________________
 
 let request = indexedDB.open('MyDatabase', 1);
 
