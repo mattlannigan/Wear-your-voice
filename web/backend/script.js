@@ -20,16 +20,16 @@ const imageFemale = [
 ];
 
 const imageDesign = [
-  {url:'images/design/bsl_love.png',              color: 'BSL love'},
-  {url:'images/design/lipreading_ninja.png',      color: 'Lipreading ninja'},
-  {url:'images/design/walking along to bsl.png',  color: 'Walking alone to BSL'}  
-
+  {url:'images/design/merry and bright.jpg',               color: 'Merry and bright'},
+  {url:'images/design/xmas DJ.jpg',                        color: 'Xmas DJ'},
+  {url:'images/design/christmas is the to be joyful.jpg',  color: 'Christmas is the to be joyful'},  
+  {url:'images/design/merry christmas.jpg',                color: 'Merry christmas'},  
+  {url:'images/design/merry christmas (deer).jpg',         color: 'Merry christmas deer'},  
+  {url:'images/design/harley davidson christmas.jpg',      color: 'Harley davidson christmas'},
+  {url:'images/design/christmas penguin.jpg',              color: 'Christmas penguin'}
 ];
 
-
-
 let butto = document.querySelector("#btn-id");
-
 
 let tutor_text = document.querySelector("#tutorName");
 let name_text = document.querySelector("#name-input");

@@ -1,0 +1,16 @@
+__________________________________ 
+    Thank you for purchasing 
+__________________________________ 
+Dates and time: 11/26/2024, 2:39:49 PM
+Order id: 10
+Colour: Black
+Design: Christmas penguin
+Gender: Male
+Size: XL
+Quantity: 1
+Price: £12.50
+Tutor name: Megan Lockey
+Group: 10
+Name: Ordno 
+Email: megan.lockey@percyhedley.org.uk
+__________________________________ 

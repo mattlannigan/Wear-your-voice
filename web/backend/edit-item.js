@@ -104,7 +104,9 @@ function loadItemData(itemId, genderId) {
 
                 // Create and append option for design 
                 const designSelect = document.getElementById("designSelect");
-                let designOptions = ["Lipreading ninja", "Walking along to bsl", "BSL love"];
+                let designOptions = ['Merry and bright', 'Xmas DJ', 'Christmas is the to be joyful', 'Merry christmas','Merry christmas deer','Harley davidson christmas', 'Christmas penguin'];
+                
+               
 
                 // Clear any existing options
                 designSelect.innerHTML = '';
