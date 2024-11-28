@@ -7,4 +7,7 @@ Order id,Status,Colours,Design,Gender,Size,Quantity,Tutor name,Group,Student nam
 10,Order processed,Black,Christmas penguin,Male,XL,1,Megan Lockey,10,Ordno ,megan.lockey@percyhedley.org.uk,£12.50
 11,Order processed,Black,Merry christmas deer,Male,L,1,Megan Lockey,10,Mike,megan.lockey@percyhedley.org.uk,£12.50
 12,Order processed,Light blue,Christmas penguin,Female,L,1,Megan Lockey,10,Emma,megan.lockey@percyhedley.org.uk,£12.50
-13,Order processed,,Merry christmas and reindeer,Female,M,1,Helen Colleys,Helen Colleys,Kayleigh Coates,n/a,£12.50
+13,Order processed,Red,Merry christmas and reindeer,Female,M,1,Helen Colleys,Helen Colleys,Kayleigh Coates,n/a,£12.50
+14,Order processed,???,????,Kid,9-10 size,1,n/a,n/a,Kelly sleeper,k.sleep@percyhedley.org.uk,£12.50
+15,Order processed,???,????,Kid,5-6 size,1,n/a,n/a,Kelly sleeper,k.sleep@percyhedley.org.uk,£12.50
+16,Order processed,???,????,Female,M,1,n/a,n/a,Kelly sleeper,k.sleep@percyhedley.org.uk,£12.50

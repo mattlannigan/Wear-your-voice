@@ -1,3 +1,4 @@
+// import { vinlyImagColours } from './script';
 window.onload = function () {
     const urlParams = new URLSearchParams(window.location.search);
     const itemId = urlParams.get('id');
@@ -104,9 +105,9 @@ function loadItemData(itemId, genderId) {
 
                 // Create and append option for design 
                 const designSelect = document.getElementById("designSelect");
-                let designOptions = ['Merry and bright', 'Xmas DJ', 'Christmas is the to be joyful', 'Merry christmas','Merry christmas deer','Harley davidson christmas', 'Christmas penguin'];
-                
-               
+                let designOptions = ['Merry and bright', 'Xmas DJ', 'Christmas is the to be joyful', 'Merry christmas', 'Merry christmas reindeer', 'Harley davidson christmas', 'Christmas penguin'];
+
+
 
                 // Clear any existing options
                 designSelect.innerHTML = '';
@@ -120,6 +121,32 @@ function loadItemData(itemId, genderId) {
                 });
                 // Set the selected value 
                 designSelect.value = item.design;
+
+                // Create and append option for vinyl
+                const vinylSelect = document.getElementById("vinylSelect");
+                let vinylOptions = ['Rose gold', 'Black', 'Gold', 'Green', 'Grey', 'White', 'Silver', 'Surprise me'];
+
+                // Clear any existing options
+                vinylSelect.innerHTML = '';
+
+                // Add the options from the vinylOption array
+                vinylOptions.forEach(vinylElms => {
+                    const vinylOption = document.createElement("option");
+                    vinylOption.value = vinylElms;
+                    vinylOption.textContent = vinylElms;
+                    vinylSelect.appendChild(vinylOption);
+                });
+                // Set the selected value 
+                vinylSelect.value = item.vinyl;
+
+                // const selectElement = document.getElementById('vinyl-color-select'); // Assuming there's a <select> element in your HTML
+
+                // vinlyImagColours.forEach(color => {
+                //     const option = document.createElement('option');
+                //     option.value = color.url;  // Use the URL as the value for the option
+                //     option.textContent = color.description;  // Display the description in the option
+                //     selectElement.appendChild(option);
+                // });
 
 
                 // Set up input values

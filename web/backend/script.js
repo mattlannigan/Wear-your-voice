@@ -6,27 +6,39 @@ let priceValue = 12.50;
 const currentDateTime = now.toLocaleString();
 
 const imageMale = [
- {url:'images/male/black.png',        color: 'Black'},
- {url:'images/male/dark green.png',   color: 'Dark green'},
- {url:'images/male/blue.png',         color: 'Blue'}
+ {url:'images/male/black.png',        description: 'Black'},
+ {url:'images/male/dark green.png',   description: 'Dark green'},
+ {url:'images/male/blue.png',         description: 'Blue'}
 ];
 
 const imageFemale = [
-  {url: 'images/female/dark blue.png', color: 'Dark blue'},
-  {url: 'images/female/lightblue.png', color: 'Light blue'},
-  {url: 'images/female/yellow.png',    color: 'Yellow'}, 
-  {url: 'images/female/pink.png',      color: 'Pink'}, 
-  {url: 'images/female/red.png',       color: 'Red'}   
+  {url: 'images/female/dark blue.png', description: 'Dark blue'},
+  {url: 'images/female/lightblue.png', description: 'Light blue'},
+  {url: 'images/female/yellow.png',    description: 'Yellow'}, 
+  {url: 'images/female/pink.png',      description: 'Pink'}, 
+  {url: 'images/female/red.png',       description: 'Red'}   
 ];
 
 const imageDesign = [
-  {url:'images/design/merry and bright.jpg',               color: 'Merry and bright'},
-  {url:'images/design/xmas DJ.jpg',                        color: 'Xmas DJ'},
-  {url:'images/design/christmas is the to be joyful.jpg',  color: 'Christmas is the to be joyful'},  
-  {url:'images/design/merry christmas.jpg',                color: 'Merry christmas'},  
-  {url:'images/design/merry christmas (deer).jpg',         color: 'Merry christmas deer'},  
-  {url:'images/design/harley davidson christmas.jpg',      color: 'Harley davidson christmas'},
-  {url:'images/design/christmas penguin.jpg',              color: 'Christmas penguin'}
+  {url:'images/design/merry and bright.jpg',               description: 'Merry and bright'},
+  {url:'images/design/xmas DJ.jpg',                        description: 'Xmas DJ'},
+  {url:'images/design/christmas is the to be joyful.jpg',  description: 'Christmas is the to be joyful'},  
+  {url:'images/design/merry christmas.jpg',                description: 'Merry christmas'},  
+  {url:'images/design/merry christmas reindeer.jpg',         description: 'Merry christmas reindeer'},  
+  {url:'images/design/harley davidson christmas.jpg',      description: 'Harley davidson christmas'},
+  {url:'images/design/christmas penguin.jpg',              description: 'Christmas penguin'}
+];
+
+// export const vinlyImagColours = [
+const vinlyImagColours = [
+  {url:'images/colour/rose-gold.png',                      description: 'Rose gold'},
+  {url:'images/colour/black.jpeg',                          description: 'Black'},
+  {url:'images/colour/gold.jpg',                          description: 'Gold'},
+  {url:'images/colour/green.jpg',                          description: 'Green'},
+  {url:'images/colour/grey.jpg',                          description: 'Grey'},
+  {url:'images/colour/white.jpg',                          description: 'White'},
+  {url:'images/colour/silver.jpg',                          description: 'Silver'},
+  {url:'images/colour/surprise-me.webp',                          description: 'Surprise me'}
 ];
 
 let butto = document.querySelector("#btn-id");
@@ -38,6 +50,7 @@ let email_text = document.querySelector("#email-input");
 
 let colour_text = document.querySelector("#myShirt");
 let design_text = document.querySelector("#myDesign");
+let vinyl_text = document.querySelector("#VinylColour");
 
 let quantitySelect = document.querySelector("#quantity");
 let genderSelect = document.querySelector("#gender");
@@ -51,6 +64,7 @@ let testElement = document.getElementById('totalPrice');
 
 const colourfeedbackElement = document.getElementById('colourFeedback');
 const designfeedbackElement = document.getElementById('designFeedback');
+const vinylcolourfeedbackElement = document.getElementById('vinylcolourfeedback');
 const sizefeedbackElement = document.getElementById('sizeFeedback');
 const genderfeedbackElement = document.getElementById('genderFeedback');
 const quantityfeedbackElement = document.getElementById('quantityFeedback');
@@ -65,6 +79,7 @@ const errfeedbackElement = document.getElementById('errorFeedback');
 const containerFemale = document.getElementById('image-female');
 const containerMale = document.getElementById('image-male');
 const containerDesign = document.getElementById('image-design');
+const containervinlyImages = document.getElementById('image-VinlyColours');
 
 // female t-shirt images
 imageFemale.forEach(item => {
@@ -73,25 +88,25 @@ imageFemale.forEach(item => {
 
   const img = document.createElement('img');
   img.src = item.url; 
-  img.alt = item.color;  
+  img.alt = item.description;  
 
-  // Create the button container (button and color description)
+  // Create the button container (button and description description)
   const buttonContainer = document.createElement('div');
   buttonContainer.classList.add('buttonCentra');
 
-  // Create the span element for color description
-  const colorSpan = document.createElement('span');
-  colorSpan.textContent = item.color;  
+  // Create the span element for description description
+  const descriptionSpan = document.createElement('span');
+  descriptionSpan.textContent = item.description;  
 
   // Create the button element
   const button = document.createElement('button');
   button.textContent = 'Add to cart';  
   button.onclick = () => {
-    myShirt(item.color);  
+    myShirt(item.description);  
     myGender('Female');   
   };
   // Append the span and button to the button container
-  buttonContainer.appendChild(colorSpan);
+  buttonContainer.appendChild(descriptionSpan);
   buttonContainer.appendChild(button);
 
   // Append the image and button container to the imageBox div
@@ -109,25 +124,25 @@ imageMale.forEach(item => {
 
   const img = document.createElement('img');
   img.src = item.url; 
-  img.alt = item.color;  
+  img.alt = item.description;  
 
-  // Create the button container (button and color description)
+  // Create the button container (button and description description)
   const buttonContainer = document.createElement('div');
   buttonContainer.classList.add('buttonCentra');
 
-  // Create the span element for color description
-  const colorSpan = document.createElement('span');
-  colorSpan.textContent = item.color;  
+  // Create the span element for description description
+  const descriptionSpan = document.createElement('span');
+  descriptionSpan.textContent = item.description;  
 
   // Create the button element
   const button = document.createElement('button');
   button.textContent = 'Add to cart';  
   button.onclick = () => {
-    myShirt(item.color);  
+    myShirt(item.description);  
     myGender('Male');   
   };
   // Append the span and button to the button container
-  buttonContainer.appendChild(colorSpan);
+  buttonContainer.appendChild(descriptionSpan);
   buttonContainer.appendChild(button);
 
   // Append the image and button container to the imageBox div
@@ -145,9 +160,9 @@ imageDesign.forEach(item => {
 
   const img = document.createElement('img');
   img.src = item.url; 
-  img.alt = item.color;  
+  img.alt = item.description;  
 
-  // Create the button container (button and color description)
+  // Create the button container (button and description description)
   const buttonContainer = document.createElement('div');
   buttonContainer.classList.add('buttonCentra');
 
@@ -155,15 +170,15 @@ imageDesign.forEach(item => {
   const button = document.createElement('button');
   button.textContent = 'Add to cart';  
   button.onclick = () => {
-    myDesign(item.color);  
+    myDesign(item.description);  
   };
 
   // Create the span element for design description
-  const colorSpan = document.createElement('span');
-  colorSpan.textContent = item.color;  
+  const descriptionSpan = document.createElement('span');
+  descriptionSpan.textContent = item.description;  
 
   // Append the span and button to the button container
-  buttonContainer.appendChild(colorSpan);
+  buttonContainer.appendChild(descriptionSpan);
   buttonContainer.appendChild(button);
 
   // Append the image and button container to the imageBox div
@@ -174,15 +189,52 @@ imageDesign.forEach(item => {
   containerDesign.appendChild(imageBox);
 });
 
+// vinly colours images
+vinlyImagColours.forEach(item => {
+  const imageBox = document.createElement('div');
+  imageBox.classList.add('designModle');  
+
+  const img = document.createElement('img');
+  img.src = item.url; 
+  img.alt = item.description;  
+
+  // Create the button container (button and description description)
+  const buttonContainer = document.createElement('div');
+  buttonContainer.classList.add('buttonCentra');
+
+  // Create the button element
+  const button = document.createElement('button');
+  button.textContent = 'Add to cart';  
+  button.onclick = () => {
+    myVinylColours(item.description);  
+  };
+
+  // Create the span element for design description
+  const descriptionSpan = document.createElement('span');
+  descriptionSpan.textContent = item.description;  
+
+  // Append the span and button to the button container
+  buttonContainer.appendChild(descriptionSpan);
+  buttonContainer.appendChild(button);
+
+  // Append the image and button container to the imageBox div
+  imageBox.appendChild(img);
+  imageBox.appendChild(buttonContainer);
+
+  // Append the imageBox to the container
+  containervinlyImages.appendChild(imageBox);
+});
+
 // Dummy functions for the button's onclick event
-function myDesign(color) {
-  console.log('Design added to cart: ' + color);
+function myDesign(description) {
+  console.log('Design added to cart: ' + description);
 }
-
-function myShirt(color) {
-  console.log('Shirt added to cart: ' + color);
+function myShirt(description) {
+  console.log('Shirt added to cart: ' + description);
 }
-
+function myVinylColours(description) {
+  console.log('Vinyl colours added to cart: ' + description);
+}
 function myGender(gender) {
   console.log('Gender selected: ' + gender);
 }
@@ -203,6 +255,7 @@ request.onsuccess = function (event) {
   // eventListener "click" on button
   butto.addEventListener("click", () => {
     let colourvalueinput = colour_text.value
+    let vinylvalueinput = vinyl_text.value
     let designvalueinput = design_text.value
 
     let quantityvalueinput = quantitySelect.value
@@ -224,12 +277,16 @@ request.onsuccess = function (event) {
     let storeMes = 0;
     // error message
     // t-shirt 
-    if (!colourvalueinput) {
-      colourfeedbackElement.textContent = "Enter t-shirt colour";
-      errorMes = 1;
-    }
     if (!designvalueinput) {
       designfeedbackElement.textContent = "Enter design";
+      errorMes = 1;
+    }
+    if (!colourvalueinput) {
+      colourfeedbackElement.textContent = "Enter colour";
+      errorMes = 1;
+    }
+    if (!vinylvalueinput) {
+      vinylcolourfeedbackElement.textContent = "Enter vinyl colour";
       errorMes = 1;
     }
     // select 
@@ -272,6 +329,7 @@ request.onsuccess = function (event) {
         status: 'Order processed',
         colour: colourvalueinput,
         design: designvalueinput,
+        vinyl: vinylvalueinput,
         gender: gendervalueinput,
         size: sizevalueinput,
         quantity: quantityvalueinput,
@@ -315,8 +373,9 @@ request.onsuccess = function (event) {
               '__________________________________ \n',
               'Dates and time: ', currentDateTime, '\n',
               'Order id: ', lastId, '\n', 
-              'Colour: ', colourvalueinput, '\n',
+              'T-shirt colour: ', colourvalueinput, '\n',
               'Design: ', designvalueinput, '\n',
+              'Vinyl colour: ', vinylvalueinput, '\n',
               'Gender: ', gendervalueinput, '\n',
               'Size: ', sizevalueinput, '\n',
               'Quantity: ', quantityvalueinput, '\n',
@@ -350,6 +409,9 @@ function myGender(inputValue) {
 }
 function myDesign(inputValue) {
   document.getElementById("myDesign").value = inputValue;
+}
+function myVinylColours(inputValue) {
+  document.getElementById("VinylColour").value = inputValue;
 }
 
 function validateEmailInput() {
